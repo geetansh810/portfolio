@@ -5,15 +5,15 @@ import GithubIcon from '@/components/ui/icons/github.astro'
 export const NAV_LINKS = [
   {
     label: "Home",
-    href: "/",
+    href: "portfolio/",
   },
   {
     label: "Projects",
-    href: "/projects",
+    href: "portfolio/projects",
   },
   {
     label: "Articles",
-    href: "/articles",
+    href: "portfolio/articles",
   },
 ] as const;
 
