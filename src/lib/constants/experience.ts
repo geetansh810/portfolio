@@ -7,24 +7,12 @@ export const EXPERIENCES: Experience[] = [
       {
         title: "Software Engineer",
         year: "Aug 2023 - Present",
-        description: `
-        - Contributing to the TCS iON Digital Assessment Platform, a Java-based 
-          server-client system used in large-scale exam delivery across nationwide centers.
-
-        - Developed backend modules for authentication, session management, 
-          and secure test data access, following modular and microservices-style 
-          architecture with SOLID principles.
-
-        - Enhanced log security by integrating RSA and AES encryption into Log4j-based 
-          logging, securing 60–80% of sensitive data for audits.
-
-        - Built services with fault-tolerant patterns and optimized Java code 
-          using efficient data structures, contributing to improved system 
-          scalability and reliability during high-traffic exam sessions.
-
-        - Resolved 20+ production issues and user stories and contributed 
-          to 2 POCs focused on modularization and platform security enhancements.
-
+        description: `  
+- → Contributing to the TCS iON Digital Assessment Platform, a Java-based server-client system used in large-scale exam delivery across nationwide centers.
+- → Developed backend modules for authentication, session management, and secure test data access, following modular and microservices-style architecture with SOLID principles.
+- → Enhanced log security by integrating RSA and AES encryption into Log4j-based logging, securing 60-80% of sensitive data for audits.
+- → Built services with fault-tolerant patterns and optimized Java code using efficient data structures, contributing to improved system scalability and reliability during high-traffic exam sessions.
+- → Resolved 20+ production issues and user stories and contributed to 2 POCs focused on modularization and platform security enhancements.
             `,
         skills: [
           "Java",
