@@ -24,6 +24,36 @@ Even after diving into building basic backend CRUD apps and moving beyond the in
 backend_development == the_framework
 ```
 
+
+```tsx
+class Animal {
+  name: string;
+
+  constructor(name: string) {
+    this.name = name;
+  }
+
+  makeSound(): void {
+    console.log(`${this.name} makes a sound.`);
+  }
+}
+
+class Dog extends Animal {
+  breed: string;
+
+  constructor(name: string, breed: string) {
+    super(name);
+    this.breed = breed;
+  }
+
+  makeSound(): void {
+    console.log(`${this.name} barks.`);
+  }
+}
+
+const myDog = new Dog("Buddy", "Golden Retriever");
+myDog.makeSound();
+```
 ---
 
 ## My previous idea about backend engineering
