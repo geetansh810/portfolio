@@ -8,6 +8,10 @@ export const NAV_LINKS = [
     href: "/portfolio",
   },
   {
+    label: "Resume",
+    href: "/portfolio/resume",
+  },
+  {
     label: "Projects",
     href: "/portfolio/projects",
   },

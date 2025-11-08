@@ -8,7 +8,7 @@ import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://geetansh.site',
+  site: 'https://geetansh810.github.io/portfolio/',
   integrations: [react(), mdx()],
   vite: {
     plugins: [tailwindcss()],

@@ -1,0 +1,29 @@
+---
+import Pattern from "@/components/ui/pattern.astro";
+import PageLayout from "@/layouts/page-layout.astro";
+
+import Box from "@/components/box/index.astro";
+import BoxHeader from "@/components/box/header.astro";
+import BoxTitle from "@/components/box/title.astro";
+import { getCollection } from "astro:content";
+import ProjectItem from "@/components/sections/projects/project-item.astro";
+import PdfViewer from "@/components/pdf-viewer.astro";
+import Layout from "@/layouts/layout.astro";
+import Navbar from "@/components/navbar/index.astro";
+
+const projects = await getCollection("projects");
+
+const coreProjects = projects.filter((project) => project.data.type === "core");
+const sideProjects = projects.filter((project) => project.data.type === "side");
+---
+
+<Layout title="Geetansh Agrawal @ SDE | Resume">
+    <Navbar className="top-1" />
+
+    <main aria-label="Main content" class="min-h-screen">
+        <div class="mx-auto max-w-3xl">
+            <Pattern className="h-2" />
+            <PdfViewer src="/Geetansh_Agrawal_SDE.pdf" />
+        </div>        
+    </main>
+</Layout>
