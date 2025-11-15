@@ -7,13 +7,13 @@ export const EXPERIENCES: Experience[] = [
       {
         title: "Software Engineer",
         year: "Aug 2023 - Present",
-        description: `  
-- → Contributing to the TCS iON Digital Assessment Platform, a Java-based server-client system used in large-scale exam delivery across nationwide centers.
-- → Developed backend modules for authentication, session management, and secure test data access, following modular and microservices-style architecture with SOLID principles.
-- → Enhanced log security by integrating RSA and AES encryption into Log4j-based logging, securing 60-80% of sensitive data for audits.
-- → Built services with fault-tolerant patterns and optimized Java code using efficient data structures, contributing to improved system scalability and reliability during high-traffic exam sessions.
-- → Resolved 20+ production issues and user stories and contributed to 2 POCs focused on modularization and platform security enhancements.
-            `,
+        description: `
+• Enabled the platform to reliably support 5M+ daily assessment transactions by decomposing the monolithic evaluation engine into domain‑driven microservices, defining clear service boundaries and implementing idempotent REST interfaces predictable request handling.\n
+• Improved system throughput by 35% and removed workflow bottlenecks by transitioning core evaluation flows to a distributed event‑driven architecture, using Kafka/RabbitMQ with asynchronous message queues, consumer groups, and dead‑letter handling.\n
+• Reduced database query latency by 40% and improved data throughput for 1M+ candidate records by restructuring workloads across MySQL (transactional) and MongoDB (document storage), applying index tuning, read/write separation, and Redis‑based hot‑cache layers for high‑frequency.\n
+• Increased deployment reliability and minimized environment drift by adopting immutable Docker image builds, maintaining environment parity, and enabling zero‑downtime rolling deployments on AWS EC2 via automated CI/CD pipelines.\n
+• Reduced response time by 25% and strengthened operational security by refactoring core modules using scalable design patterns and implementing RSA/AES encrypted logging with key rotation.
+`,
         skills: [
           "Java",
           "SpringBoot",
