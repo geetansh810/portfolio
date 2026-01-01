@@ -8,11 +8,19 @@ export const EXPERIENCES: Experience[] = [
         title: "Software Engineer",
         year: "Aug 2023 - Present",
         description: `
-• Enabled the platform to reliably support 5M+ daily assessment transactions by decomposing the monolithic evaluation engine into domain‑driven microservices, defining clear service boundaries and implementing idempotent REST interfaces predictable request handling.\n
-• Improved system throughput by 35% and removed workflow bottlenecks by transitioning core evaluation flows to a distributed event‑driven architecture, using Kafka/RabbitMQ with asynchronous message queues, consumer groups, and dead‑letter handling.\n
-• Reduced database query latency by 40% and improved data throughput for 1M+ candidate records by restructuring workloads across MySQL (transactional) and MongoDB (document storage), applying index tuning, read/write separation, and Redis‑based hot‑cache layers for high‑frequency.\n
-• Increased deployment reliability and minimized environment drift by adopting immutable Docker image builds, maintaining environment parity, and enabling zero‑downtime rolling deployments on AWS EC2 via automated CI/CD pipelines.\n
-• Reduced response time by 25% and strengthened operational security by refactoring core modules using scalable design patterns and implementing RSA/AES encrypted logging with key rotation.
+• Spearheaded platform scalability to reliably support 1M+ daily assessment transactions by decomposing the monolithic evaluation
+engine into domain‑driven microservices, establishing clear service boundaries and enforcing idempotent REST interfaces for predictable
+request handling.\n
+• Accelerated system throughput by 35% and eliminated workflow bottlenecks by orchestrating the transition of core evaluation flows to
+a distributed event‑driven architecture, leveraging Kafka/RabbitMQ with asynchronous message queues, consumer groups, and resilient
+dead‑letter mechanisms.\n
+• Reduced database query latency by 40% and improved data throughput for 1M+ candidate records by restructuring workloads across
+MySQL (transactional) and MongoDB (document storage), optimizing indexes, implementing read/write separation, and integrating Redis‑
+based hot‑cache layers for high‑frequency operations.\n
+• Increased deployment reliability and minimized environment drift by adopting immutable Docker image builds, standardizing
+environment parity, and enabling zero‑downtime rolling deployments on AWS EC2 through automated CI/CD pipelines.\n
+• Reduced response time by 25% and strengthened operational security by refactoring core modules using scalable design patterns and
+implementing RSA/AES encrypted logging with automated key rotation.
 `,
         skills: [
           "Java",
