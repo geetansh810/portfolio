@@ -15,13 +15,13 @@ const { position } = Astro.props;
 <div>
   <div class="block w-full text-left">
     <div class="relative z-1 mb-1 flex items-center space-x-3">
-      <Code2 className="size-4 bg-background" />
+      <Code2 className="size-4 text-muted-foreground bg-background" />
       <h3 class="text-base font-black underline-offset-4">
         {position.title}
       </h3>
     </div>
     <span
-      class="flex items-center gap-2 pl-4 sm:pl-7 font-mono text-sm text-foreground"
+      class="flex items-center gap-2 pl-4 sm:pl-7 font-mono text-xs text-muted-foreground/80 sm:text-sm"
     >
       {position.year}
     </span>
@@ -32,11 +32,8 @@ const { position } = Astro.props;
       class="description-content max-h-0 overflow-hidden transition-all duration-300"
     >
       <div
-        class="text-wrap"
-        set:html={markdownToHtml(
-          position.description,
-          "ml-4 sm:ml-7 text-sm leading-7"
-        )}
+        class="text-wrap ml-4 sm:ml-7 text-sm leading-relaxed text-foreground/80"
+        set:html={markdownToHtml(position.description)}
       />
 
       {
@@ -51,7 +48,7 @@ const { position } = Astro.props;
     </div>
 
     <button
-      class="toggle-btn mt-2 ml-4 sm:ml-7 flex cursor-pointer items-center gap-1 rounded-md border px-4 py-2 text-xs font-medium text-primary hover:underline focus:outline-none"
+      class="toggle-btn mt-2 ml-4 sm:ml-7 flex cursor-pointer items-center gap-1 text-xs font-semibold text-muted-foreground transition-colors hover:text-primary hover:underline focus:outline-none"
     >
       <span class="toggle-text">Show more</span>
       <ChevronDown className="toggle-icon-down size-4" />
@@ -71,6 +68,38 @@ const { position } = Astro.props;
 
   .description-container .toggle-icon-down.hidden {
     display: none;
+  }
+
+  .description-content :global(ul) {
+    list-style-type: none !important;
+    padding-left: 0 !important;
+    margin: 0.5rem 0 0.75rem 0 !important;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .description-content :global(li) {
+    position: relative;
+    padding-left: 1.25rem;
+    line-height: 1.625;
+  }
+
+  .description-content :global(li::before) {
+    content: "";
+    position: absolute;
+    left: 0.125rem;
+    top: 0.55rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: hsl(var(--primary));
+    opacity: 0.85;
+  }
+
+  .description-content :global(strong) {
+    font-weight: 600;
+    color: hsl(var(--foreground));
   }
 </style>
 
