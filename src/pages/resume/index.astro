@@ -10,6 +10,7 @@ import ProjectItem from "@/components/sections/projects/project-item.astro";
 import PdfViewer from "@/components/pdf-viewer.astro";
 import Layout from "@/layouts/layout.astro";
 import Navbar from "@/components/navbar/index.astro";
+import { basePath } from "@/lib/utils";
 
 const projects = await getCollection("projects");
 
@@ -23,7 +24,7 @@ const sideProjects = projects.filter((project) => project.data.type === "side");
     <main aria-label="Main content" class="min-h-screen">
         <div class="mx-auto max-w-3xl">
             <Pattern className="h-2" />
-            <PdfViewer src="/portfolio/Geetansh_Agrawal_SDE.pdf" />
+            <PdfViewer src={basePath("/Geetansh_Agrawal_SDE.pdf")} />
         </div>        
     </main>
 </Layout>

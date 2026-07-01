@@ -1,5 +1,5 @@
 ---
-import { buttonVariants, capitalizeFirstLetter } from "@/lib/utils";
+import { buttonVariants, capitalizeFirstLetter, basePath } from "@/lib/utils";
 import Layout from "./layout.astro";
 import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/navbar/index.astro";
@@ -36,11 +36,11 @@ const { title, technologies, description, preview, sourceCode, image } =
 
   <main class="mx-auto min-h-screen max-w-3xl" aria-label="Main content">
     <Pattern className="h-14">
-      <div class="z-1 mx-2 mt-auto flex w-full items-center justify-between">
-        <LinkBtn ariaLabel="Back btn" href="/portfolio/projects">
+      <div class="z-1 flex w-full items-center justify-between px-4 mt-auto">
+        <LinkBtn ariaLabel="Back btn" href={basePath("/projects")}>
           <ArrowLeft />
         </LinkBtn>
-        <div>
+        <div class="flex items-center gap-1.5">
           {
             sourceCode && (
               <LinkBtn
@@ -59,7 +59,6 @@ const { title, technologies, description, preview, sourceCode, image } =
             preview && (
               <LinkBtn
                 ariaLabel="Deployed App"
-                variant="default"
                 target="_blank"
                 className="text-xs"
                 variant="default"

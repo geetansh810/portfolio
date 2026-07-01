@@ -2,6 +2,7 @@
 import ModeToggle from "@/components/mode-toggle.astro";
 import NavLinks from "./nav-links.astro";
 import { PROFILE_INFO } from "@/lib/constants/profile";
+import { basePath } from "@/lib/utils";
 
 interface Props {
   className?: string;
@@ -17,9 +18,9 @@ const { className } = Astro.props;
   ]}
 >
   <div
-    class="mx-auto md:flex max-w-3xl items-center justify-between px-4 py-1 md:border-x"
+    class="mx-auto flex flex-col sm:flex-row max-w-3xl items-center justify-between px-4 py-2 sm:py-1 md:border-x gap-y-2 sm:gap-y-0"
   >
-    <a href="/portfolio">
+    <a href={basePath("/")}>
       <h1 class="text-xl font-bold text-center py-1">{PROFILE_INFO.logo}</h1>
     </a>
 

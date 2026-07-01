@@ -21,7 +21,7 @@ const { position } = Astro.props;
       </h3>
     </div>
     <span
-      class="flex items-center gap-2 pl-7 font-mono text-sm text-foreground"
+      class="flex items-center gap-2 pl-4 sm:pl-7 font-mono text-sm text-foreground"
     >
       {position.year}
     </span>
@@ -35,13 +35,13 @@ const { position } = Astro.props;
         class="text-wrap"
         set:html={markdownToHtml(
           position.description,
-          "ml-7 text-sm leading-7"
+          "ml-4 sm:ml-7 text-sm leading-7"
         )}
       />
 
       {
         Array.isArray(position.skills) && position.skills.length > 0 && (
-          <div class="mt-2 ml-7 flex max-w-full flex-wrap items-center justify-start gap-1.5 py-2">
+          <div class="mt-2 ml-4 sm:ml-7 flex max-w-full flex-wrap items-center justify-start gap-1.5 py-2">
             {position.skills.map(skill => {
               return <Badge>{skill}</Badge>;
             })}
@@ -51,7 +51,7 @@ const { position } = Astro.props;
     </div>
 
     <button
-      class="toggle-btn mt-2 ml-7 flex cursor-pointer items-center gap-1 rounded-md border px-4 py-2 text-xs font-medium text-primary hover:underline focus:outline-none"
+      class="toggle-btn mt-2 ml-4 sm:ml-7 flex cursor-pointer items-center gap-1 rounded-md border px-4 py-2 text-xs font-medium text-primary hover:underline focus:outline-none"
     >
       <span class="toggle-text">Show more</span>
       <ChevronDown className="toggle-icon-down size-4" />

@@ -13,6 +13,19 @@ export function capitalizeFirstLetter(sentence: string): string {
   return `${sentence.charAt(0).toUpperCase()}${sentence.slice(1)}`;
 }
 
+/**
+ * Prepends the configured base URL to a path.
+ * In dev: base is "/" → basePath("/resume") returns "/resume"
+ * In prod: base is "/portfolio/" → basePath("/resume") returns "/portfolio/resume"
+ */
+export function basePath(path: string): string {
+  const base = import.meta.env.BASE_URL;
+  // Remove trailing slash from base and leading slash from path to avoid doubles
+  const normalizedBase = base.endsWith('/') ? base.slice(0, -1) : base;
+  const normalizedPath = path.startsWith('/') ? path : `/${path}`;
+  return `${normalizedBase}${normalizedPath}`;
+}
+
 export const buttonVariants = cva(
   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {

@@ -3,16 +3,29 @@ import { NAV_LINKS } from "@/lib/constants/index";
 import { cn } from "@/lib/utils";
 
 const pathname = Astro.url.pathname;
+const base = import.meta.env.BASE_URL;
 
-// Remove trailing slash from current pathname if exists
-const currentPath =
-  pathname.endsWith("/") && pathname !== "/" ? pathname.slice(0, -1) : pathname;
+// Strip the base prefix and trailing slash for clean comparison
+const stripBase = (path: string) => {
+  const normalizedBase = base.endsWith('/') ? base.slice(0, -1) : base;
+  let stripped = path;
+  if (normalizedBase && stripped.startsWith(normalizedBase)) {
+    stripped = stripped.slice(normalizedBase.length);
+  }
+  if (stripped.endsWith("/") && stripped !== "/") {
+    stripped = stripped.slice(0, -1);
+  }
+  return stripped || "/";
+};
+
+const currentPath = stripBase(pathname);
 
 const isActive = (path: string) => {
-  const currentPathArray = currentPath.split("/").filter(p => p.trim());
-  const pathArray = path.split("/").filter(p => p.trim());
-
-  return currentPath === path || currentPathArray[0] === pathArray[0];
+  const strippedPath = stripBase(path);
+  if (currentPath === strippedPath) return true;
+  // Match sub-paths (e.g. /articles/foo matches /articles)
+  if (strippedPath !== "/" && currentPath.startsWith(strippedPath + "/")) return true;
+  return false;
 };
 ---
 

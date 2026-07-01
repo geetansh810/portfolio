@@ -1,25 +1,55 @@
 ---
-const { src, title = "Preview" } = Astro.props;
+import { FileText, Download, ExternalLink } from "lucide-react";
+import { basePath } from "@/lib/utils";
+
+interface Props {
+  src: string;
+  title?: string;
+}
+
+const { src, title = "Geetansh Agrawal - Resume" } = Astro.props;
 ---
 
-<div class="w-full h-screen flex flex-col">
-    <!-- <div class="p-4 border-b bg-gray-50 flex items-center justify-between">
-        <h2 class="text-lg font-semibold">{title}</h2>
-        <a
-            href={src}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="px-3 py-1 text-sm bg-blue-600 text-white rounded hover:bg-blue-700"
-        >
-            Open in new tab
-        </a>
-    </div> -->
+<div class="w-full min-h-[500px] h-[calc(100vh-180px)] flex flex-col px-4 md:px-0 my-4">
+  <!-- Desktop PDF Embed View -->
+  <div class="hidden md:block flex-1 w-full h-full">
+    <embed
+      src={src}
+      type="application/pdf"
+      class="w-full h-full border rounded-lg shadow-sm"
+    />
+  </div>
 
-    <div class="flex-1">
-        <embed
-            src={src}
-            type="application/pdf"
-            class="w-full h-full"
-        />
+  <!-- Mobile Premium Fallback View -->
+  <div class="block md:hidden flex-1 flex flex-col items-center justify-center py-12 px-4 text-center border border-dashed rounded-xl bg-card/25 shadow-sm">
+    <div class="size-16 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6">
+      <FileText className="size-8" />
     </div>
+
+    <h2 class="text-xl font-bold mb-2">{title}</h2>
+    <p class="text-xs text-muted-foreground max-w-xs mb-8 leading-relaxed">
+      Interactive PDF previewing is not supported on mobile devices. Open or download the file to view the complete resume.
+    </p>
+
+    <div class="flex flex-col w-full gap-3 max-w-[240px]">
+      <a
+        href={src}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center gap-2 rounded-full bg-primary text-primary-foreground h-10 px-5 text-xs font-semibold hover:bg-primary/95 transition-all active:scale-[0.98] cursor-pointer"
+      >
+        <span>Open in New Tab</span>
+        <ExternalLink className="size-3.5" />
+      </a>
+      
+      <a
+        href={src}
+        download="Geetansh_Agrawal_Resume.pdf"
+        class="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-background hover:bg-muted text-foreground h-10 px-5 text-xs font-semibold transition-all active:scale-[0.98] cursor-pointer"
+      >
+        <span>Download PDF</span>
+        <Download className="size-3.5" />
+      </a>
+    </div>
+  </div>
 </div>

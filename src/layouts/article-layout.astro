@@ -15,6 +15,7 @@ import BoxContent from "@/components/box/content.astro";
 
 import type { MarkdownHeading } from "astro";
 import LinkBtn from "@/components/ui/link-btn.astro";
+import { basePath } from "@/lib/utils";
 
 interface Props {
   title: string;
@@ -45,7 +46,7 @@ const formattedDate = new Intl.DateTimeFormat("en-GB", {
         <LinkBtn
           ariaLabel="Back link"
           className="absolute bottom-0 left-2 z-1"
-          href="/articles"
+          href={basePath("/articles")}
         >
           <ArrowLeft />
         </LinkBtn>

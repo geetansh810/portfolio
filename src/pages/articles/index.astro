@@ -1,0 +1,16 @@
+---
+import PageLayout from "@/layouts/page-layout.astro";
+import Pattern from "@/components/ui/pattern.astro";
+import MediumArticles from "@/components/medium-articles.tsx";
+---
+
+<PageLayout
+  description="Exploring frontend, backend, and full-stack development deep dives, system design, and hands-on insights."
+  title="Software Engineering Notes"
+>
+  <Pattern />
+  
+  <MediumArticles client:load />
+
+  <Pattern />
+</PageLayout>

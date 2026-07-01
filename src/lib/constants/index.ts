@@ -1,25 +1,27 @@
 import LinkedinIcon from '@/components/ui/icons/linkedin.astro'
 import XIcon from '@/components/ui/icons/x.astro'
 import GithubIcon from '@/components/ui/icons/github.astro'
+import { basePath } from '@/lib/utils'
 
 export const NAV_LINKS = [
   {
     label: "Home",
-    href: "/portfolio",
+    href: basePath("/"),
   },
   {
     label: "Resume",
-    href: "/portfolio/resume",
+    href: basePath("/resume"),
   },
   {
     label: "Projects",
-    href: "/portfolio/projects",
+    href: basePath("/projects"),
   },
   {
     label: "Articles",
-    href: "/portfolio/articles",
+    href: basePath("/articles"),
   },
 ] as const;
+
 
 export const SOCIAL_LINKS = [
   {

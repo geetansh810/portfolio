@@ -1,9 +1,11 @@
 ---
-import { ChevronRightIcon, FolderCodeIcon } from "lucide-react";
+import { ChevronRightIcon } from "lucide-react";
 
 import MarkdownRenderer from "@/components/ui/markdown-renderer.astro";
 import type { CollectionEntry } from "astro:content";
 import Badge from "@/components/ui/badge.astro";
+import { basePath } from "@/lib/utils";
+import ProjectThumbnail from "./project-thumbnail.astro";
 
 interface Props {
   project: CollectionEntry<"projects">;
@@ -13,12 +15,12 @@ const { project } = Astro.props;
 ---
 
 <a
-  href={`/portfolio/projects/${project.id}`}
-  class="flex cursor-pointer items-center not-last:border-b"
+  href={basePath(`/projects/${project.id}`)}
+  class="group flex flex-col sm:flex-row cursor-pointer items-stretch not-last:border-b hover:bg-muted/5 transition-colors duration-200"
 >
-  <FolderCodeIcon className="mx-4.5 size-5 shrink-0 text-muted-foreground" />
+  <ProjectThumbnail id={project.id} />
 
-  <div class="group flex w-full cursor-pointer flex-col gap-y-3 border-l p-4">
+  <div class="flex w-full flex-col gap-y-3 p-4">
     <div class="flex w-full items-center justify-between text-left select-none">
       <h3
         class="text-lg font-semibold underline-offset-6 group-hover:underline"
@@ -32,7 +34,7 @@ const { project } = Astro.props;
     </div>
 
     <MarkdownRenderer
-      className="text-xs leading-5 font-medium md:text-sm"
+      className="text-xs leading-5 font-medium md:text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-200"
       content={project.data.description}
     />
 
@@ -47,3 +49,4 @@ const { project } = Astro.props;
     }
   </div>
 </a>
+
